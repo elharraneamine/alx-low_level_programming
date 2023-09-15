@@ -1,32 +1,30 @@
 #include <stdio.h>
 
 /**
- * main - Print all possibe combinations of two digit numbers
- *        using putchar
+ * main - Print combinations of two-digit numbers using only 5 putchar calls
  *
  * Return: Always 0
  */
 
 int main(void)
 {
-	int i, j;
+  int i, j;
 
-	for (i = 0; i < 99; i++)
+  for (i = 0; i < 10; i++)
+    {
+      for (j = i + 1; j < 10; j++)
 	{
-		for (j = i + 1; j < 100; j++)
-		{
-			putchar('0' + i / 10);
-			putchar('0' + i % 10);
-			putchar(' ');
-			putchar('0' + j / 10);
-			putchar('0' + j % 10);
-			if (i < 98)
-			{
-				putchar(',');
-				putchar(' ');
-			}
-		}
+	  putchar(i + '0');
+	  putchar(j + '0');
+
+	  if (i < 8 || j < 9)
+	    {
+	      putchar(',');
+	      putchar(' ');
+	    }
 	}
-	putchar('\n');
-	return (0);
+    }
+
+  putchar('\n');
+  return (0);
 }
